@@ -14,47 +14,6 @@
 
     <!-- Script Google Maps avec API Key, async et defer pour un chargement optimal -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF0k4mjMExAS--ngCycGoHskHtksha2Cw&libraries=places&callback=initMap" async defer></script>
-
-    <!-- Script pour initialiser la carte et gérer l'autocomplétion et la géolocalisation -->
-    <script>
-        function initMap() {
-            // Initialisation de la carte centrée sur Paris
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
-                center: { lat: 48.8566, lng: 2.3522 } // Coordonnées valides de Paris
-            });
-
-            // Autocomplétion pour les adresses de départ et de destination
-            const autocompleteDeparture = new google.maps.places.Autocomplete(
-                document.getElementById('departure')
-            );
-            const autocompleteDestination = new google.maps.places.Autocomplete(
-                document.getElementById('destination')
-            );
-
-            // Géolocalisation : récupérer la position actuelle de l'utilisateur
-            document.getElementById('geolocate').addEventListener('click', function() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        const pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-                        map.setCenter(pos);
-                        new google.maps.Marker({
-                            position: pos,
-                            map: map,
-                            title: "Vous êtes ici",
-                        });
-                    });
-                } else {
-                    alert("La géolocalisation n'est pas supportée par votre navigateur.");
-                }
-            });
-        }
-
-        window.onload = initMap;
-    </script>
 </head>
 <body>
 
@@ -64,8 +23,10 @@
             <h1>Taxi Moto Réservation</h1>
             <ul class="nav-menu">
                 <li><a href="#hero">Accueil</a></li>
-                <li><a href="#reservation">Réservations</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#flotte">Notre Flotte</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#reservation">Réservations</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
             </ul>
         </nav>
@@ -80,26 +41,63 @@
         </div>
     </section>
 
-    <!-- Section Services -->
+    <!-- Section 1 : Pourquoi choisir nos taxis motos -->
+    <section id="choisir" class="choisir-section">
+        <h2>Pourquoi choisir nos taxis motos ?</h2>
+        <ul>
+            <li><strong>Rapidité :</strong> Réduisez votre temps de trajet en évitant les embouteillages de Paris.</li>
+            <li><strong>Sécurité :</strong> Des chauffeurs expérimentés et des motos équipées pour vous offrir un maximum de confort.</li>
+            <li><strong>Écologique :</strong> Moins de CO₂ émis par rapport à un taxi traditionnel.</li>
+            <li><strong>Disponibilité 24/7 :</strong> Réservez votre course à tout moment, pour n’importe quel trajet.</li>
+        </ul>
+    </section>
+
+    <!-- Section 2 : Services enrichis -->
     <section id="services" class="services-section">
-        <h2>Des taxis-motos tout confort à Paris</h2>
-        <p>
-            La rapidité, la discrétion et la confidentialité sont les clés de notre réussite.
-            Nous mettons à votre disposition des véhicules bien entretenus dont vous apprécierez le confort et la rapidité.
-            Nous proposons nos services de transferts pour les professionnels.
-            Nous vous assurons des déplacements dans les meilleures conditions.
-            Chauffeurs professionnels, nous proposons un service de transfert vers les aéroports, gares, ou événements spéciaux.
-            Nous pouvons emporter jusqu'à 23 kg de bagages.
-        </p>
+        <h2>Nos services de taxi moto à Paris</h2>
+        <p>Notre flotte de taxi motos est prête à répondre à tous vos besoins de transport rapide à Paris et en région. Que ce soit pour un transfert vers l'aéroport, un rendez-vous professionnel, ou un déplacement urgent, nous vous offrons une solution adaptée et fiable. Voici un aperçu de nos services :</p>
+
+        <h3>Transferts aéroports et gares</h3>
+        <p>Nous vous proposons des transferts express entre Paris et ses aéroports principaux, notamment Roissy-Charles de Gaulle, Orly et Le Bourget, ainsi que vers toutes les grandes gares parisiennes. Vous êtes certain d'arriver à l'heure.</p>
+
+        <h3>Déplacements professionnels</h3>
+        <p>Pour vos réunions, conférences ou rendez-vous d’affaires à Paris, optez pour un transport ponctuel et efficace avec nos chauffeurs experts en itinéraires rapides.</p>
+
+        <h3>Événements privés et sur-mesure</h3>
+        <p>Que ce soit pour un mariage, une soirée VIP ou un événement d'entreprise, nos services de taxi moto s'adaptent à vos besoins. Profitez de nos prestations sur-mesure.</p>
+    </section>
+
+    <!-- Section 3 : Notre flotte enrichie -->
+    <section id="flotte" class="flotte-section">
+        <h2>Notre flotte de taxis motos à la pointe de la technologie</h2>
+        <p>Nous disposons d'une flotte moderne de 60 motos, conçues pour offrir confort et sécurité à nos passagers. Que ce soit pour des trajets courts ou longs, nos motos sont parfaitement adaptées à tous vos besoins de transport rapide.</p>
+
+        <h3>Caractéristiques de nos motos :</h3>
+        <ul>
+            <li>Vélocité : Nos motos vous permettent de contourner les embouteillages de Paris.</li>
+            <li>Sécurité : Nos véhicules sont équipés de casques et protections pour chaque passager.</li>
+            <li>Confort : Sièges ergonomiques pour un trajet agréable, même sur les longues distances.</li>
+        </ul>
+
+        <h3>Engagement écologique</h3>
+        <p>Nous mettons un point d'honneur à réduire notre empreinte carbone avec des motos modernes et éco-énergétiques, tout en garantissant la sécurité et la rapidité de vos déplacements.</p>
+    </section>
+
+    <!-- Section 4 : Témoignages de clients -->
+    <section id="temoignages" class="temoignages-section">
+        <h2>Ce que nos clients disent de nous</h2>
+        <blockquote>
+            <p>"Grâce à Taxi Moto Parisiens, j'ai attrapé mon vol à temps malgré les embouteillages. Un service rapide et professionnel que je recommande fortement !" – <strong>Marie L.</strong></p>
+        </blockquote>
+        <blockquote>
+            <p>"Un service impeccable et très pratique pour mes déplacements professionnels dans Paris. Je ne me passe plus de leur service !" – <strong>Jean-Marc B.</strong></p>
+        </blockquote>
     </section>
 
     <!-- Section Réservation -->
     <section id="reservation" class="reservation-section">
         <h2>Réservez votre course</h2>
-        <p class="reservation-description">
-            Réservez facilement votre course en saisissant les informations ci-dessous. 
-            Profitez de notre service rapide et sécurisé pour tous vos trajets à Paris et en Province.
-        </p>
+        <p class="reservation-description">Réservez facilement votre course en saisissant les informations ci-dessous. Profitez de notre service rapide et sécurisé pour tous vos trajets à Paris et en Province.</p>
         
         <div class="reservation-container">
             <form id="reservation-form">
@@ -130,7 +128,7 @@
             </form>
             
             <!-- Carte Google Maps -->
-            <div id="map" style="width:100%; height:400px;"></div>
+            <div id="map"></div>
             
             <!-- Tarif estimé sous la carte -->
             <div id="fare" class="fare-estimate"></div>
@@ -150,8 +148,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Contactez-nous : +33 123 456 789</p>
-        <p>Email : contact@taximoto.com</p>
+        <p>Contactez-nous : +33 123 456 789 | Email : contact@taximoto.com</p>
     </footer>
 
     <!-- Script personnalisé -->
