@@ -16,14 +16,11 @@ function initMap() {
     // Géolocalisation : récupérer la position actuelle de l'utilisateur
     document.getElementById('geolocate').addEventListener('click', function() {
         if (navigator.geolocation) {
-            // Demande la permission de géolocalisation
             navigator.geolocation.getCurrentPosition(function(position) {
-                // Si la géolocalisation est autorisée, récupère la position
                 const pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 };
-                // Centre la carte sur la position actuelle
                 map.setCenter(pos);
                 new google.maps.Marker({
                     position: pos,
@@ -36,7 +33,6 @@ function initMap() {
                 geocoder.geocode({ location: pos }, function(results, status) {
                     if (status === "OK") {
                         if (results[0]) {
-                            // Remplit le champ d'adresse de départ avec l'adresse géolocalisée
                             document.getElementById('departure').value = results[0].formatted_address;
                         } else {
                             alert("Aucune adresse trouvée.");
@@ -46,10 +42,9 @@ function initMap() {
                     }
                 });
             }, function(error) {
-                // Gestion des erreurs de géolocalisation
                 switch (error.code) {
                     case error.PERMISSION_DENIED:
-                        alert("La géolocalisation a été refusée. Veuillez autoriser la géolocalisation pour utiliser cette fonctionnalité.");
+                        alert("La géolocalisation a été refusée. Veuillez autoriser la géolocalisation.");
                         break;
                     case error.POSITION_UNAVAILABLE:
                         alert("Les informations de position ne sont pas disponibles.");
@@ -63,11 +58,46 @@ function initMap() {
                 }
             });
         } else {
-            // Si le navigateur ne supporte pas la géolocalisation
             alert("La géolocalisation n'est pas supportée par votre navigateur.");
+        }
+    });
+
+    // Estimation du tarif en fonction de la distance
+    document.getElementById('estimate-fare').addEventListener('click', function() {
+        const departure = document.getElementById('departure').value;
+        const destination = document.getElementById('destination').value;
+
+        if (departure && destination) {
+            const directionsService = new google.maps.DirectionsService();
+
+            const request = {
+                origin: departure,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    const route = result.routes[0];
+                    const distanceInKm = route.legs[0].distance.value / 1000; // Distance en kilomètres
+
+                    const fare = calculateFare(distanceInKm);
+                    document.getElementById('fare').innerText = "Tarif estimé : " + fare + " €";
+                } else {
+                    alert("Impossible de calculer l'itinéraire : " + status);
+                }
+            });
+        } else {
+            alert("Veuillez remplir les adresses de départ et de destination.");
         }
     });
 }
 
-// Charger la carte et initialiser les fonctionnalités de géolocalisation au chargement de la page
+// Fonction pour calculer le tarif en fonction de la distance
+function calculateFare(distance) {
+    const baseFare = 30; // Tarif de base
+    const farePerKm = 1.5; // Prix par kilomètre supplémentaire
+    return (baseFare + (farePerKm * distance)).toFixed(2);
+}
+
 window.onload = initMap;
