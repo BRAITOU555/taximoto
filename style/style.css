@@ -237,6 +237,15 @@ nav h1 {
 .btn-primary:hover {
     background-color: #388e3c;
 }
+/* Style pour le tarif et la durée estimée */
+.fare-estimate, .duration-estimate {
+    font-size: 1.5rem; /* Taille du texte pour rendre le tarif et la durée plus lisibles */
+    font-weight: bold; /* Mettre en gras le texte */
+    color: #43a047; /* Couleur verte pour rendre les informations attrayantes (vous pouvez changer cette couleur si nécessaire) */
+    margin-top: 10px; /* Espace au-dessus des informations */
+    text-align: center; /* Centrer le texte */
+}
+
 
 /* Carte Google Maps */
 #map {
