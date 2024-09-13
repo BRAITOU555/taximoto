@@ -1,58 +1,52 @@
 function initMap() {
+    // Initialisation de la carte centrée sur Paris
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 12,
-        center: { lat: 48.8566, lng: 2.3522 } // Coordonnées de Paris
+        center: { lat: 48.8566, lng: 2.3522 }, // Coordonnées de Paris
     });
 
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
+    // Auto-complétion pour les adresses de départ et de destination
+    const autocompleteDeparture = new google.maps.places.Autocomplete(
+        document.getElementById('departure')
+    );
+    const autocompleteDestination = new google.maps.places.Autocomplete(
+        document.getElementById('destination')
+    );
 
-    document.getElementById('estimate-fare').addEventListener('click', function() {
-        const departure = document.getElementById('departure').value;
-        const destination = document.getElementById('destination').value;
-
-        if (!departure || !destination) {
-            alert("Veuillez saisir à la fois l'adresse de départ et l'adresse de destination.");
-            return;
-        }
-
-        calculateRouteWithTraffic(directionsService, directionsRenderer, departure, destination);
-    });
-}
-
-function calculateRouteWithTraffic(directionsService, directionsRenderer, departure, destination) {
-    const request = {
-        origin: departure,
-        destination: destination,
-        travelMode: google.maps.TravelMode.DRIVING,
-        drivingOptions: {
-            departureTime: new Date(),  // Calcul en fonction du trafic actuel
-            trafficModel: 'bestguess'   // Modèle basé sur la meilleure estimation du trafic
-        }
-    };
-
-    directionsService.route(request, function(result, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-            directionsRenderer.setDirections(result);
-            const route = result.routes[0];
-            const distanceInKm = route.legs[0].distance.value / 1000; // Distance en kilomètres
-            const durationWithTraffic = route.legs[0].duration_in_traffic.text; // Durée avec le trafic
-
-            const fare = calculateFare(distanceInKm);
-            document.getElementById('fare').innerText = "Tarif estimé : " + fare + " €";
-            document.getElementById('duration').innerText = "Durée estimée avec trafic : " + durationWithTraffic;
+    // Géolocalisation : récupérer la position actuelle de l'utilisateur
+    document.getElementById('geolocate').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                // Centrer la carte sur la position actuelle
+                map.setCenter(pos);
+                new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: "Vous êtes ici",
+                });
+                // Remplir le champ "Adresse de départ" avec la position
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ location: pos }, function(results, status) {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            document.getElementById('departure').value = results[0].formatted_address;
+                        } else {
+                            window.alert("Pas de résultats trouvés.");
+                        }
+                    } else {
+                        window.alert("Geocoder a échoué en raison de : " + status);
+                    }
+                });
+            });
         } else {
-            console.error("Erreur Google Maps Directions :", status);
-            alert("Erreur lors du calcul de l'itinéraire. Veuillez vérifier les adresses.");
+            alert("La géolocalisation n'est pas supportée par votre navigateur.");
         }
     });
 }
 
-function calculateFare(distance) {
-    const baseFare = 30; // Tarif de base
-    const farePerKm = 1.5; // Prix par kilomètre
-    return (baseFare + (farePerKm * distance)).toFixed(2); // Arrondir à deux décimales
-}
-
+// Charger la carte quand la page est chargée
 window.onload = initMap;
