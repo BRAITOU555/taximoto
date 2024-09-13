@@ -43,7 +43,8 @@ function calculateRouteWithTraffic(directionsService, directionsRenderer, depart
             document.getElementById('fare').innerText = "Tarif estimé : " + fare + " €";
             document.getElementById('duration').innerText = "Durée estimée avec trafic : " + durationWithTraffic;
         } else {
-            alert("Impossible de calculer l'itinéraire, veuillez vérifier les adresses.");
+            console.error("Erreur Google Maps Directions :", status);
+            alert("Erreur lors du calcul de l'itinéraire. Veuillez vérifier les adresses.");
         }
     });
 }
