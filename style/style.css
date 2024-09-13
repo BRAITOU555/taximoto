@@ -1,0 +1,347 @@
+/* Appliquer la police Open Sans à tout le site */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4; /* Fond clair et professionnel */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333; /* Couleur sombre élégante */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: white;
+    margin: 0;
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-right: 20px;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu li a:hover {
+    background-color: #007bff; /* Couleur bleue élégante au survol */
+    border-radius: 5px;
+}
+
+/* Styles pour la section hero avec l'image de bande */
+.hero {
+    background-image: url('../images/DALL·E-2024-09-10-18.14.jpg'); /* Assurez-vous que le chemin correspond bien à l'image */
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre et transparent pour rendre le texte lisible */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.btn-reserver {
+    background-color: #007bff;
+    padding: 15px 30px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-reserver:hover {
+    background-color: #0056b3;
+}
+
+/* Section Services */
+.services-section {
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #64b5f6 0%, #1e88e5 50%, #0d47a1 100%); /* Bleu fondu */
+    text-align: center;
+    color: white;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.services-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section Flotte */
+.flotte-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4; /* Fond clair pour la section */
+}
+
+.flotte-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flotte-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flotte-text {
+    max-width: 500px;
+    margin-left: 20px;
+}
+
+.flotte-text h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0d47a1; /* Bleu profond pour le titre */
+}
+
+.flotte-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Section Réservation */
+.reservation-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Fond léger pour une apparence propre */
+    text-align: center;
+    color: #333;
+}
+
+.reservation-section h2 {
+    font-size: 2.5rem;
+    color: #0d47a1; /* Bleu profond pour le titre */
+    margin-bottom: 20px;
+}
+
+.reservation-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+}
+
+.reservation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#reservation-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group button,
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+#geolocate {
+    background-color: #0d47a1;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+#geolocate:hover {
+    background-color: #1e88e5;
+}
+
+.btn-primary {
+    background-color: #43a047;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #388e3c;
+}
+
+/* Carte Google Maps */
+#map {
+    flex: 1;
+    height: 400px;
+    min-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reservation-container {
+        flex-direction: column;
+    }
+
+    #reservation-form {
+        margin-right: 0;
+    }
+}
+
+/* Media Queries pour rendre le site responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        height: 60vh; /* Réduire la hauteur sur tablette */
+    }
+
+    .reservation-container {
+        flex-direction: column;
+    }
+
+    .about-content {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* Harmonisation des champs d'adresse, date et heure avec des bordures arrondies */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px; /* Bordures arrondies */
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour un effet moderne */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet de survol et focus */
+.form-group input[type="text"]:hover,
+.form-group input[type="date"]:hover,
+.form-group input[type="time"]:hover,
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="time"]:focus {
+    border-color: #0d47a1; /* Bordure bleue au survol et au focus */
+    box-shadow: 0px 4px 10px rgba(13, 71, 161, 0.3); /* Effet de survol élégant */
+    outline: none; /* Retirer la bordure par défaut au focus */
+}
+
+/* Harmonisation des boutons */
+#geolocate, .btn-primary {
+    border-radius: 30px; /* Bordures arrondies pour les boutons aussi */
+}
+
+/* Affichage du tarif estimé */
+.fare-estimate {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #43a047; /* Vert pour le tarif */
+    font-weight: bold;
+    text-align: center;
+}
