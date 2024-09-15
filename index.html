@@ -15,12 +15,20 @@
     <!-- Script Google Maps avec API Key, async et defer pour un chargement optimal -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF0k4mjMExAS--ngCycGoHskHtksha2Cw&libraries=places&callback=initMap" async defer></script>
 </head>
-<body>
+
+    
 
     <!-- Menu de navigation -->
     <header>
+            <div class="phone-logo">
+                <a href="tel:+33756922626">
+                 07 56 92 26 26
+                </a>
+            </div>
         <nav>
             <h1>Taxi Moto Réservation</h1>
+            <!-- Bouton hamburger pour le menu mobile -->
+            <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
             <ul class="nav-menu">
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
@@ -28,10 +36,12 @@
                 <li><a href="#temoignages">Témoignages</a></li>
                 <li><a href="#reservation">Réservations</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
-                <li><a href="blog.html">Blog</a></li> <!-- Ajout du lien vers la page Blog -->
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
+    
+    
 
     <!-- Section Hero avec une belle image de bande -->
     <section class="hero" id="hero">
@@ -141,15 +151,15 @@
         <h2>Nos Tarifs</h2>
         <p>Découvrez nos tarifs compétitifs pour vos trajets en taxi moto.</p>
         <ul>
-            <li>Paris intra-muros : 30€</li>
-            <li>Paris vers les aéroports : 50€</li>
-            <li>Paris vers la Province : À partir de 80€</li>
+            <li>Paris intra-muros : 60€</li>
+            <li>Paris vers les aéroports : 110€</li>
+            <li>Paris vers la Province : À partir de 200€</li>
         </ul>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Contactez-nous : +33 123 456 789 | Email : contact@taximoto.com</p>
+        <p>Contactez-nous : 0756922626 | Email : contact@taximoto.com</p>
     </footer>
 
     <!-- Script personnalisé -->

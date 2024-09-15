@@ -1,18 +1,21 @@
 /* Appliquer la police Open Sans à tout le site */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4; /* Fond clair et professionnel */
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
+/* Header */
 header {
-    background-color: #333; /* Couleur sombre élégante */
+    background-color: #333;
     color: white;
     padding: 15px;
     text-align: center;
+    position: relative;
 }
 
+/* Navigation */
 nav {
     display: flex;
     justify-content: space-between;
@@ -43,13 +46,46 @@ nav h1 {
 }
 
 .nav-menu li a:hover {
-    background-color: #007bff; /* Couleur bleue élégante au survol */
+    background-color: #007bff;
     border-radius: 5px;
 }
 
-/* Styles pour la section hero avec l'image de bande */
+/* Style pour le numéro de téléphone */
+.phone-logo {
+    position: fixed;
+    top: 60px; /* Ajustez la position vers le bas pour éviter la superposition */
+    left: 20px;
+    background-color: #43a047;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Assurez-vous qu'il reste au-dessus du contenu */
+}
+
+.phone-logo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.phone-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.phone-logo a:hover {
+    background-color: #388e3c;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Section Hero */
 .hero {
-    background-image: url('../images/DALL·E-2024-09-10-18.14.jpg'); /* Assurez-vous que le chemin correspond bien à l'image */
+    background-image: url('../images/DALL·E-2024-09-10-18.14.jpg');
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -61,7 +97,7 @@ nav h1 {
 }
 
 .hero-content {
-    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre et transparent pour rendre le texte lisible */
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 30px;
     border-radius: 10px;
 }
@@ -93,7 +129,7 @@ nav h1 {
 /* Section Services */
 .services-section {
     padding: 60px 20px;
-    background: linear-gradient(180deg, #64b5f6 0%, #1e88e5 50%, #0d47a1 100%); /* Bleu fondu */
+    background: linear-gradient(180deg, #64b5f6 0%, #1e88e5 50%, #0d47a1 100%);
     text-align: center;
     color: white;
 }
@@ -114,7 +150,7 @@ nav h1 {
 /* Section Flotte */
 .flotte-section {
     padding: 60px 20px;
-    background-color: #f4f4f4; /* Fond clair pour la section */
+    background-color: #f4f4f4;
 }
 
 .flotte-container {
@@ -139,7 +175,7 @@ nav h1 {
 .flotte-text h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #0d47a1; /* Bleu profond pour le titre */
+    color: #0d47a1;
 }
 
 .flotte-text p {
@@ -151,14 +187,14 @@ nav h1 {
 /* Section Réservation */
 .reservation-section {
     padding: 60px 20px;
-    background-color: #f9f9f9; /* Fond léger pour une apparence propre */
+    background-color: #f9f9f9;
     text-align: center;
     color: #333;
 }
 
 .reservation-section h2 {
     font-size: 2.5rem;
-    color: #0d47a1; /* Bleu profond pour le titre */
+    color: #0d47a1;
     margin-bottom: 20px;
 }
 
@@ -251,89 +287,11 @@ nav h1 {
 .fare-estimate {
     margin-top: 20px;
     font-size: 1.5rem;
-    color: #43a047; /* Vert pour le tarif */
+    color: #43a047;
     font-weight: bold;
     text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .reservation-container {
-        flex-direction: column;
-    }
-
-    #reservation-form {
-        margin-right: 0;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-menu li {
-        margin: 10px 0;
-    }
-
-    .hero {
-        height: 60vh; /* Réduire la hauteur sur tablette */
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-
-    p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 50vh;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
-
-/* Harmonisation des champs d'adresse, date et heure avec des bordures arrondies */
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group input[type="time"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 30px; /* Bordures arrondies */
-    margin-bottom: 15px;
-    font-size: 1rem;
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour un effet moderne */
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Effet de survol et focus */
-.form-group input[type="text"]:hover,
-.form-group input[type="date"]:hover,
-.form-group input[type="time"]:hover,
-.form-group input[type="text"]:focus,
-.form-group input[type="date"]:focus,
-.form-group input[type="time"]:focus {
-    border-color: #0d47a1; /* Bordure bleue au survol et au focus */
-    box-shadow: 0px 4px 10px rgba(13, 71, 161, 0.3); /* Effet de survol élégant */
-    outline: none; /* Retirer la bordure par défaut au focus */
-}
-
-/* Harmonisation des boutons */
-#geolocate, .btn-primary {
-    border-radius: 30px; /* Bordures arrondies pour les boutons aussi */
-}
 /* Section Blog */
 .blog-section {
     padding: 60px 20px;
@@ -399,10 +357,134 @@ nav h1 {
     .blog-post {
         width: 45%;
     }
+
+    .reservation-container {
+        flex-direction: column;
+    }
+
+    #reservation-form {
+        margin-right: 0;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
     .blog-post {
         width: 100%;
     }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
+
+/* Harmonisation des champs d'adresse, date et heure */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-group input[type="text"]:hover,
+.form-group input[type="date"]:hover,
+.form-group input[type="time"]:hover,
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="time"]:focus {
+    border-color: #0d47a1;
+    box-shadow: 0px 4px 10px rgba(13, 71, 161, 0.3);
+    outline: none;
+}
+
+#geolocate, .btn-primary {
+    border-radius: 30px;
+}
+/* Cacher le menu pour les petits écrans */
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Menu par défaut */
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* Affichage du menu pour les petits écrans */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Cacher le menu par défaut */
+        flex-direction: column;
+        background-color: #333; /* Fond du menu */
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Ajuster pour qu'il s'affiche sous le header */
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav-menu li {
+        margin: 0;
+    }
+
+    .nav-menu li a {
+        padding: 15px;
+        text-align: center;
+        display: block;
+        color: white;
+        border-bottom: 1px solid #555; /* Ligne de séparation entre les éléments */
+    }
+
+    /* Afficher le bouton hamburger */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Afficher le menu lorsque l'icône hamburger est cliquée */
+    .nav-menu.active {
+        display: flex;
+    }
+}
+
