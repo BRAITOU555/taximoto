@@ -50,15 +50,15 @@ nav h1 {
     border-radius: 5px;
 }
 
-/* Style pour le numéro de téléphone */
+/* Styles pour le numéro de téléphone fixe en haut à gauche */
 .phone-logo {
     position: fixed;
-    top: 60px; /* Ajustez la position vers le bas pour éviter la superposition */
-    left: 20px;
-    background-color: #43a047;
+    top: 60px;
+    left: 10px;
+    background-color: #43a047; /* Fond vert */
     padding: 10px;
     border-radius: 5px;
-    z-index: 1000; /* Assurez-vous qu'il reste au-dessus du contenu */
+    z-index: 1000;
 }
 
 .phone-logo a {
@@ -66,21 +66,42 @@ nav h1 {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2rem;
-    display: flex;
-    align-items: center;
 }
 
-.phone-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+/* Cacher le menu hamburger sur la version bureau */
+.hamburger-menu {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
 }
 
-.phone-logo a:hover {
-    background-color: #388e3c;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+/* Afficher le menu hamburger sur mobile */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
 }
+
 
 
 /* Section Hero */
