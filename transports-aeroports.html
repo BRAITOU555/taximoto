@@ -11,6 +11,14 @@
     
     <!-- Lien vers Google Fonts pour utiliser "Open Sans" -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Script pour gérer le menu mobile -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
 
@@ -23,6 +31,8 @@
         </div>
         <nav>
             <h1>Taxi Moto Réservation</h1>
+            <!-- Bouton hamburger pour le menu mobile -->
+            <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
             <ul class="nav-menu">
                 <li><a href="index.html#hero">Accueil</a></li>
                 <li><a href="index.html#services">Services</a></li>
