@@ -6,22 +6,34 @@
     <meta name="description" content="Service de taxi moto pour les déplacements parisiens.">
     <title>Transports Parisiens - Taxi Moto</title>
     <link rel="stylesheet" href="style/style.css">
+    <!-- Inclure le script pour le menu mobile -->
+    <script src="script/script.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="phone-logo">
+            <a href="tel:+33756922626">
+                07 56 92 26 26
+            </a>
+        </div>
         <h1>Transports Parisiens</h1>
         <nav>
+            <!-- Bouton hamburger pour les mobiles -->
+            <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="transports-gares.html">Transports Gares</a></li>
                 <li><a href="transports-aeroports.html">Transports Aéroports</a></li>
+                <li><a href="transports-parisiens.html">Transports Parisiens</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="service-item">
         <h2>Transports Parisiens</h2>
-        <p>Que ce soit pour un rendez-vous d'affaires ou une sortie privée, nous offrons des solutions de transport rapide à travers toute la ville de Paris. Profitez de nos taxis motos pour éviter les embouteillages.</p>
+        <p>Que ce soit pour un rendez-vous d'affaires ou une sortie privée, nous offrons des solutions de transport rapide à travers toute la ville de Paris. Profitez de nos taxis motos pour éviter les embouteillages et arriver à destination en toute sérénité.</p>
+        <p>Nos services sont disponibles 24/7, que ce soit pour des trajets professionnels ou personnels. Grâce à notre connaissance approfondie des itinéraires parisiens, nous garantissons un service de qualité, ponctuel et fiable pour tous vos déplacements.</p>
     </section>
 
     <footer>
