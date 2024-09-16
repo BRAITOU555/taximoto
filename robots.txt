@@ -1,0 +1,16 @@
+# Bloque l'accès à certains répertoires et fichiers spécifiques
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /scripts/
+Disallow: /cgi-bin/
+
+# Empêche les moteurs de recherche d'indexer les URL d'actions comme les liens de numéros de téléphone
+Disallow: /tel:+33756922626
+
+# Autorise l'accès à toutes les autres pages
+Allow: /
+
+# Localisation du sitemap
+Sitemap: https://www.taximotoparisiens.fr/sitemap.xml
